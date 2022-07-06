@@ -1,0 +1,31 @@
+.outerBox {
+display: flex;
+border: 1px dashed lightgrey;
+/*flex: 1;*/
+justify-content: center;
+}
+
+.innerBox {
+
+border: 1px solid blue;
+/*flex: 1;
+margin: 2px;
+width: 20px;
+height: 20px;*/
+flex: 0 0 auto;
+
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.hoverStyle {
+    background-color: blue;
+}
+
+.hoverOffStyle {
+    background-color: lightgrey;
+}
