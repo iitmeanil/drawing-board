@@ -1,4 +1,7 @@
+//setting a global size value to be used for resetting the grid
 let globalGridSize =16;
+
+// takes user input, checks it and passes it for creating the page
 function setSize() {
     let num = prompt("Enter the Size of Grid you want (number between 10 and 100)",16);
     if (+num >=10 && +num <=100){
@@ -6,13 +9,13 @@ function setSize() {
     }
 }
 
+
+// creates the grid page
 function startCreating (gridSize = 16) {
-    if (isNaN(gridSize)) {
-        gridSize = globalGridSize;
-    }
     globalGridSize = gridSize;
     const body = document.querySelector('body');
-// clearing the body
+
+    // clearing the body element completely, this is needed when re-creating the grid
     let child = body.firstChild;
     while(child) {
         body.removeChild(child);
@@ -20,7 +23,7 @@ function startCreating (gridSize = 16) {
     }
 
 
-// adding header and buttons
+    // adding header and buttons
     const heading = document.createElement("h1");
     heading.classList.add("heading");
     heading.textContent = "Sketch Pad";
@@ -32,7 +35,9 @@ function startCreating (gridSize = 16) {
 
     const resetButton = document.createElement("button");
     resetButton.textContent = "Reset";
-    resetButton.addEventListener('click',startCreating);
+    resetButton.addEventListener('click',() => {
+        startCreating(globalGridSize);
+    });
     buttonsDiv.appendChild(resetButton);
 
     const sizeButton = document.createElement("button");
@@ -40,7 +45,7 @@ function startCreating (gridSize = 16) {
     sizeButton.addEventListener ('click',setSize);
     buttonsDiv.appendChild(sizeButton);
 
-    // creating grids of divs
+    // creating grids of divs, there is outer div which are like vertically stacked boxes and then internal divs which are horizotal stacked
     let newDiv = [];
     let margin = 1;
     let box;
@@ -62,12 +67,10 @@ function startCreating (gridSize = 16) {
                 e.target.classList.add("hoverStyle"); 
             });
             box.addEventListener("mouseleave", (e) => {
-                e.target.classList.remove("hoverStyle"); 
+                e.target.classList.remove("hoverStyle"); // removing dark style and applying light color as the mouse leaves the bx
                 e.target.classList.add("hoverOffStyle");
             });
-
-            
-            newDiv[i].appendChild(box);
+           newDiv[i].appendChild(box);
         }
     }
 }
