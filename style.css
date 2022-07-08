@@ -6,7 +6,7 @@
 }
 
 .innerBox {
-    border: 1px solid blue;
+    /*border: 1px solid blue;
     /*flex: 1;
     margin: 2px;
     width: 20px;
@@ -17,6 +17,19 @@
 body {
     display: flex;
     flex-direction: column;    
+    align-items: center;
+   
+}
+
+.sketchPad {
+    
+    border: 5px solid blue;
+    flex: 0 1 auto;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hoverStyle {
@@ -35,4 +48,5 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
+    gap: 15px;
 }

@@ -12,6 +12,10 @@ function setSize() {
 
 // creates the grid page
 function startCreating (gridSize = 16) {
+    let newDiv = [];
+    let margin = 0;
+    let box;
+    let outerBoxHeight = "600px";
     globalGridSize = gridSize;
     const body = document.querySelector('body');
 
@@ -45,18 +49,21 @@ function startCreating (gridSize = 16) {
     sizeButton.addEventListener ('click',setSize);
     buttonsDiv.appendChild(sizeButton);
 
-    // creating grids of divs, there is outer div which are like vertically stacked boxes and then internal divs which are horizotal stacked
-    let newDiv = [];
-    let margin = 1;
-    let box;
-    let boxHeight = Math.floor((window.innerHeight - (gridSize + 1)*margin - 200 )/gridSize);
-    console.log(boxHeight, gridSize);
-    //console.log(window.innerWidth, window.innerHeight);
+    const sketchPad = document.createElement("div");
+    sketchPad.classList.add("sketchPad");
+    sketchPad.style.cssText = `height: ${outerBoxHeight}; width: ${outerBoxHeight}`;
+    body.appendChild(sketchPad);
 
+    
+    let boxHeight = Math.floor(sketchPad.offsetHeight/gridSize);// taking sketchpad height dynamically to take care of flexing.
+    console.log(`boxheight: ${boxHeight}, gridsize: ${gridSize}`);
+    console.log (`outerbox height: ${outerBoxHeight}, sketchpad offset height: ${sketchPad.offsetHeight}`);
+
+    // creating grids of divs, there is outer div which are like vertically stacked boxes and then internal divs which are horizotal stacked
     for (let i = 0; i < gridSize; i++) {
         newDiv[i] = document.createElement("div");
         newDiv[i].classList.add("outerBox");
-        body.appendChild(newDiv[i]);
+        sketchPad.appendChild(newDiv[i]);
         
         for (let j = 0; j < gridSize; j++){
             box = document.createElement("div");
