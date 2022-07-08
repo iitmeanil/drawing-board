@@ -1,25 +1,22 @@
 .outerBox {
-display: flex;
-border: 1px dashed lightgrey;
-/*flex: 1;*/
-justify-content: center;
+    display: flex;
+    /*border: 1px dashed lightgrey;
+    flex: 1;*/
+    justify-content: center;
 }
 
 .innerBox {
-
-border: 1px solid blue;
-/*flex: 1;
-margin: 2px;
-width: 20px;
-height: 20px;*/
-flex: 0 0 auto;
-
+    border: 1px solid blue;
+    /*flex: 1;
+    margin: 2px;
+    width: 20px;
+    height: 20px;*/
+    flex: 0 0 auto;
 }
 
 body {
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;    
 }
 
 .hoverStyle {
@@ -28,4 +25,14 @@ body {
 
 .hoverOffStyle {
     background-color: lightgrey;
+}
+.heading {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
 }
