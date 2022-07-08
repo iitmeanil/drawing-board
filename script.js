@@ -55,7 +55,7 @@ function startCreating (gridSize = 16) {
     body.appendChild(sketchPad);
 
     
-    let boxHeight = Math.floor(sketchPad.offsetHeight/gridSize);// taking sketchpad height dynamically to take care of flexing.
+    let boxHeight = Math.floor((sketchPad.offsetHeight-5)/gridSize);// taking sketchpad height dynamically to take care of flexing.
     console.log(`boxheight: ${boxHeight}, gridsize: ${gridSize}`);
     console.log (`outerbox height: ${outerBoxHeight}, sketchpad offset height: ${sketchPad.offsetHeight}`);
 
